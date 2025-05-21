@@ -9,14 +9,15 @@ while True:
     "\n"
     print()
     print(
-        "-- FLIGHT CALC - Choose a subject from the list below --\n"
+        "-- FLIGHT CALC - Choose a subject from the list below : --\n"
         "\n"
-        "   FLIGHT PERFORMANCE (F)\n"  # --->
+        "   FLIGHT PERFORMANCE (F)\n"
         "   MASS AND BALANCE (MB)\n"
         "   FLIGHT PLANNING (FP)\n"
         "   OPERATIONAL PROCEDURES (O)\n"
         "   METEOROLOGY (M)\n")
     choice = input("Choose a subject : ").lower()
+    print()
     print()
 
 
@@ -72,7 +73,7 @@ while True:
         temp_difference = temp-std_temp_at_alt
 
         DA = fl_altitude+(120*(temp-std_temp_at_alt))
-        print(f"{start_bold}DENSITY ALTITUDE = {DA:,.0f}ft{end_bold}.")
+        print(f"{start_bold}DENSITY ALTITUDE = {DA:,.0f}ft{end_bold}.\n")
         print()
         print()
 
@@ -80,7 +81,20 @@ while True:
         ias = int(input("Enter speed IAS in kts : "))
         altitude = int(input("Enter pressure altitude in feet : "))
         TAS = ias*(1+(altitude/1000*.02))
-        print(f"{TAS:.0f}")
+        print(f"{TAS:.0f}\n")
+
+    def rate_of_descent():
+        glide_slope = float(input("enter degrees glide slope ex. '3': "))            
+        GS = int(input("enter groundspeed (kts) : "))
+        print()
+        if glide_slope == 3.0:
+            ft_min = 5*GS
+            print(f"{start_bold}Rate of descent = {ft_min:.0f}ft/min{end_bold}\n")
+        else:
+            ft_min = 5 * GS * (glide_slope/3)
+            print(f"{start_bold}Rate of descent = {ft_min:.0f}ft/min{end_bold}\n")
+
+
 
 
 
@@ -112,4 +126,11 @@ while True:
             glide_slope_height()        
         elif choice_f == 'to':
             take-off()
-        elif choice_f == ''
+        elif choice_f == 'la':
+            landing()
+        elif choice_f == 'rs':
+            runway_slope()
+
+print()
+print()
+print()
