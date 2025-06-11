@@ -1,6 +1,6 @@
 # vehicle log sheet
+import sys
 import pandas as pd
-import numpy as np
 
 data = {
     'Date': ['10 mei 1940', '15 augustus 1945'],
@@ -25,6 +25,6 @@ if choice.lower() == "n":
 
 else:
     table = pd.DataFrame(data)
-    print(table)
-
-
+    print("The logbook has been written to 'vehicle_logbook.txt'")
+    with open("vehicle_logbook.txt", mode='w', encoding='utf-8') as sys.stdout:
+        print(table)
