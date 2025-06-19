@@ -1,8 +1,9 @@
 # vehicle_log_sheet2.py writes 'date', 'destination', 'opening_km', 'closing_km',
 # 'total_km', 'petrol_refill', 'private_business' to a '.txt' file for later edit.
+import time
 
 date = input("\ndate : ")
-destination = input("\ndestination : ")
+destination = input("\ndestination : ").title()
 opening_km = int(input("\nopening km : "))
 while True:
     pvt_bus = input("\nPrivate(P) or Business(B)? ").upper()
@@ -19,3 +20,6 @@ print("\n--> Finished editing the record")
 
 with open("vehicle_log_sheet.txt", mode="a", encoding="utf-8") as log:
         log.write(f"{date:17}{destination:<35}{opening_km:<10,}{pvt_bus:<5}{closing_km:<10,}{petrol_refill:<5.2f}l{total_km:>5}km\n")
+
+time.sleep(1) # to make printed line 19 visible.
+quit() # to properly make pythonista write data to file.
